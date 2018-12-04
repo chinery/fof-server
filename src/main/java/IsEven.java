@@ -8,7 +8,7 @@ public class IsEven extends Problem{
 
 	@Override
 	protected String getQuestion() {
-		return "" + rng.nextInt(100000);
+		return "" + (rng.nextInt(100000) + 1);
 	}
 
 	@Override

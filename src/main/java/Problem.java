@@ -3,8 +3,8 @@
 import java.util.Random;
 
 public abstract class Problem {
-	String question;
-	String answer;
+	private String question;
+	private String answer;
 	protected static Random rng = new Random();
 	private int bonusTurns;
 	private int bonusPoints;
@@ -13,10 +13,11 @@ public abstract class Problem {
 	public Problem(int bonusTurns, int bonusPoints, String name) {
 		this.bonusTurns = bonusTurns;
 		this.bonusPoints = bonusPoints;
+		this.name = name;
+		
 		this.init();
 		this.question = getQuestion();
 		this.answer = getAnswer(this.question);
-		this.name = name;
 	}
 	
 	protected void init() {
