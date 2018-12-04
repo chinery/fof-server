@@ -2,10 +2,10 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class IsEvenTest {
+public class HasBathTest {
 
-	private IsEven customIsEven(final String question) {
-		return new IsEven() {
+	private HasBath customHasBath(final String question) {
+		return new HasBath() {
 			private String injected_question;
 			@Override
 			protected void init() {
@@ -19,70 +19,57 @@ public class IsEvenTest {
 		};
 	}
 	
-	
-	// Normal data tests
-	
 	@Test
 	public void test1() {
-		Problem problem1 = customIsEven("50000");
+		Problem problem1 = customHasBath("BATH");
 		assertTrue(problem1.checkAnswer("ANSWER TRUE"));
 	}
 	
 	@Test
 	public void test2() {
-		Problem problem1 = customIsEven("50000");
+		Problem problem1 = customHasBath("BATH");
 		assertFalse(problem1.checkAnswer("ANSWER FALSE"));
 	}
 	
 	@Test
 	public void test3() {
-		Problem problem1 = customIsEven("49999");
-		assertFalse(problem1.checkAnswer("ANSWER TRUE"));
+		Problem problem1 = customHasBath("XBATHX");
+		assertTrue(problem1.checkAnswer("ANSWER TRUE"));
 	}
 	
 	@Test
 	public void test4() {
-		Problem problem1 = customIsEven("49999");
+		Problem problem1 = customHasBath("XYBATH");
 		assertTrue(problem1.checkAnswer("ANSWER FALSE"));
 	}
 	
-	// boundary data tests
-	
 	@Test
 	public void test5() {
-		Problem problem1 = customIsEven("1");
-		assertFalse(problem1.checkAnswer("ANSWER TRUE"));
+		Problem problem1 = customHasBath("XYZBATH");
+		assertTrue(problem1.checkAnswer("ANSWER FALSE"));
 	}
 	
 	@Test
 	public void test6() {
-		Problem problem1 = customIsEven("1");
+		Problem problem1 = customHasBath("XYZBATHX");
 		assertTrue(problem1.checkAnswer("ANSWER FALSE"));
 	}
 	
 	@Test
 	public void test7() {
-		Problem problem1 = customIsEven("100000");
-		assertTrue(problem1.checkAnswer("ANSWER TRUE"));
+		Problem problem1 = customHasBath("BATXH");
+		assertTrue(problem1.checkAnswer("ANSWER FALSE"));
 	}
 	
 	@Test
 	public void test8() {
-		Problem problem1 = customIsEven("100000");
-		assertFalse(problem1.checkAnswer("ANSWER FALSE"));
-	}
-	
-	// bad data tests
-	
-	@Test
-	public void baddata1() {
-		Problem problem1 = customIsEven("50000");
-		assertFalse(problem1.checkAnswer("ANSWER 100"));
+		Problem problem1 = customHasBath("");
+		assertTrue(problem1.checkAnswer("ANSWER FALSE"));
 	}
 	
 	@Test
 	public void restOfBadData() {
-		Problem problem1 = customIsEven("50000");
+		Problem problem1 = customHasBath("XBATHX");
 		for(String bad : AllProblemTests.BAD_INPUT_DATA) {
 			assertFalse(problem1.checkAnswer("ANSWER " + bad));
 		}
