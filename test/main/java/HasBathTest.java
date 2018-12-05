@@ -23,6 +23,7 @@ public class HasBathTest {
 	public void test1() {
 		Problem problem1 = customHasBath("BATH");
 		assertTrue(problem1.checkAnswer("ANSWER TRUE"));
+		assertTrue(false);
 	}
 	
 	@Test
