@@ -16,7 +16,7 @@ public abstract class Problem {
 		this.name = name;
 		
 		this.init();
-		this.question = getQuestion();
+		this.question = getRandomQuestion();
 		this.answer = getAnswer(this.question);
 	}
 	
@@ -32,7 +32,7 @@ public abstract class Problem {
 		return ("ANSWER " + answer).equals(s.toUpperCase());
 	}
 	
-	protected abstract String getQuestion();
+	protected abstract String getRandomQuestion();
 	protected abstract String getAnswer(String question);
 	
 	public int getBonusTurns() {

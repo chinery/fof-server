@@ -26,7 +26,7 @@ public class Fib extends Problem{
 	}
 
 	@Override
-	protected String getQuestion() {
+	protected String getRandomQuestion() {
 		return "" + (rng.nextInt(50)+1);
 	}
 

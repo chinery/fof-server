@@ -1,26 +1,20 @@
 
 
-import java.util.Base64;
-
-public class ReverseString extends Problem{
+public class ReverseString extends StringProblem{
 
 	public ReverseString() {
 		super(1, 1, "REVERSESTRING");
 	}
 
 	@Override
-	protected String getQuestion() {
-		byte[] bytes = new byte[12];
-		rng.nextBytes(bytes);
-		String randomString = Base64.getUrlEncoder().encodeToString(bytes).toUpperCase();
-		return randomString.substring(2, rng.nextInt(6)+5);
+	protected String getRandomQuestion() {
+		return StringProblem.randomString(4,12);
 	}
 
 	@Override
 	protected String getAnswer(String question) {
 		return (new StringBuilder(question)).reverse().toString();
 	}
-	
 	
 
 }

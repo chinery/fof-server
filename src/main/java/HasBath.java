@@ -7,7 +7,7 @@ public class HasBath extends Problem{
 	}
 
 	@Override
-	protected String getQuestion() {
+	protected String getRandomQuestion() {
 		StringBuilder sb = new StringBuilder();
 		for(int i = 0; i < rng.nextInt(4); i++) {
 			sb.append('X');

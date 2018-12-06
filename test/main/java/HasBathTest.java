@@ -12,7 +12,7 @@ public class HasBathTest {
 				this.injected_question = question;
 			}
 			@Override
-			protected String getQuestion() {
+			protected String getRandomQuestion() {
 				return injected_question;
 				
 			}

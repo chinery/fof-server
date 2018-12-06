@@ -1,6 +1,6 @@
 
 
-public class StringMult extends Problem {
+public class StringMult extends StringProblem {
 	
 	private static String[] shortWords = {"HI", "HEY", "OI", "HO"};
 	
@@ -9,7 +9,7 @@ public class StringMult extends Problem {
 	}
 
 	@Override
-	protected String getQuestion() {
+	protected String getRandomQuestion() {
 		return shortWords[rng.nextInt(shortWords.length)] + " " + (rng.nextInt(3)+1);
 	}
 

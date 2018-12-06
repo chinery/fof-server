@@ -45,7 +45,7 @@ public class IsPrime extends Problem{
 	}
 
 	@Override
-	protected String getQuestion() {
+	protected String getRandomQuestion() {
 		if(rng.nextBoolean()) {
 			return "" + primes.get(rng.nextInt(primes.size()));
 		} else {

@@ -8,7 +8,7 @@ public class Factorial extends Problem{
 	}
 
 	@Override
-	protected String getQuestion() {
+	protected String getRandomQuestion() {
 		return "" + rng.nextInt(10);
 	}
 

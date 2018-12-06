@@ -1,6 +1,6 @@
 
 
-public class MiddleTwo extends Problem{
+public class MiddleTwo extends StringProblem{
 	
 	private static String[] words = {"SOME", "EVEN", "LENGTH", "THINGS"};
 	
@@ -9,7 +9,7 @@ public class MiddleTwo extends Problem{
 	}
 
 	@Override
-	protected String getQuestion() {
+	protected String getRandomQuestion() {
 		return words[rng.nextInt(words.length)];
 	}
 
