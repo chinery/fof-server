@@ -175,10 +175,13 @@ public class GameLogic extends Thread{
 	}
 	
 	private synchronized String isCorrect(String answer, Player p) {
-		if(p.getProblem().checkAnswer(answer)) {
-			p.addBonusTurns(p.getProblem().getBonusTurns());
-			p.addBonusPoints(p.getProblem().getBonusPoints());
-			return "SUCCESS" + " BONUSTURNS " + p.getProblem().getBonusTurns() + " BONUSPOINTS " + p.getProblem().getBonusPoints();
+		if(p.getProblem() != null && p.getProblem().checkAnswer(answer)) {
+			int bonusTurns = p.getProblem().getBonusTurns();
+			int bonusPoints = p.getProblem().getBonusPoints();
+			p.addBonusTurns(bonusTurns);
+			p.addBonusPoints(bonusPoints);
+			p.addProblem(null);
+			return "SUCCESS" + " BONUSTURNS " + bonusTurns + " BONUSPOINTS " + bonusPoints;
 		}
 		else {
 			return "FAIL";

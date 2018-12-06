@@ -41,32 +41,36 @@ public class Map {
 	}
 	
 	public String getSubMap(int x, int y, String name) {
-		int left = x-3;
+		int left = x - 3;
 		int right = x + 3;
 		int top = y - 3;
 		int bottom = y + 3;
-		String look = "";
+		
+		int mapi, mapj;
+		StringBuilder look = new StringBuilder();
 		for(int i=top; i<=bottom; i++) {
 			for(int j=left; j<=right; j++) {
-				if(i<0 || i>=map.length) {
-					look += "#";
+				if(i < 0) { mapi = map.length + i;	}
+				else if(i >= map.length) { mapi = i % map.length; }
+				else { mapi = i; }
+				
+				if(j < 0) { mapj = map[0].length + j; }
+				else if(j >= map[0].length) { mapj = j % map[0].length; }
+				else { mapj = j; }
+				
+				if(mapi==y && mapj==x) {
+					look.append(name);
 				}
-				else if (j<0 || j>=map[0].length) {
-					look += "#";
-				}
-				else if(i==y && j==x) {
-					look += name;
-				}
-				else if(map[i][j] != null) {
-					look += map[i][j].toString();
+				else if(map[mapi][mapj] != null) {
+					look.append(map[mapi][mapj].toString());
 				}
 				else {
-					look += ".";
+					look.append('.');
 				}
 			}
-			look += ";";
+			look.append(';');
 		}
-		return look;
+		return look.toString();
 	}
 	
 	private void generateMap() {
