@@ -11,7 +11,7 @@ public class ProblemFactory {
 	}
 	
 	public Problem getNewProblem() {
-		int i = r.nextInt(10);
+		int i = r.nextInt(11);
 		switch(i) {
 			case 0 : return new ReverseString();
 			case 1 : return new IsPrime();
@@ -23,6 +23,7 @@ public class ProblemFactory {
 			case 7 : return new StringMult();
 			case 8 : return new MiddleTwo();
 			case 9 : return new EvenFibToN();
+			case 10: return new Rot13();
 			default : return new IsPrime();
 		}
 	}
